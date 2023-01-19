@@ -1,15 +1,15 @@
-import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-import { Context } from "react";
-import DispatchContext from "../DispatchContext";
-import StateContext from "../StateContext";
+import React, { useEffect, useContext } from "react"
+import { Link } from "react-router-dom"
+import { Context } from "react"
+import DispatchContext from "../DispatchContext"
+import StateContext from "../StateContext"
 
 function HeaderLoggedIn(props) {
-  const appDispatch = useContext(DispatchContext);
-  const appState = useContext(StateContext);
+  const appDispatch = useContext(DispatchContext)
+  const appState = useContext(StateContext)
 
   function handleLogout() {
-    appDispatch({ type: "logout" });
+    appDispatch({ type: "logout" })
   }
 
   return (
@@ -31,7 +31,7 @@ function HeaderLoggedIn(props) {
         Sign Out
       </button>
     </div>
-  );
+  )
 }
 
-export default HeaderLoggedIn;
+export default HeaderLoggedIn
