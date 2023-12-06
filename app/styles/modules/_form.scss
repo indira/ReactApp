@@ -1,0 +1,26 @@
+.input-dark {
+  border-color: transparent;
+  &:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  &::-webkit-input-placeholder {
+    color: #888;
+  }
+  &::-moz-placeholder {
+    color: #888;
+  }
+  &:-ms-input-placeholder {
+    color: #888;
+  }
+  &:-moz-placeholder {
+    color: #888;
+  }
+}
+.form-group {
+  position: relative;
+}
+textarea.tall-textarea {
+  height: 160px;
+}
