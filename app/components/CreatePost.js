@@ -2,16 +2,23 @@ import React, { useEffect, useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import Page from "./Page"
 import Axios from "axios"
+import DispatchContext from "../DispatchContext"
+import StateContext from "../StateContext"
+import FlashMessages from "./FlashMessages"
 
-function CreatePost() {
+function CreatePost(props) {
   const [title, setTitle] = useState()
   const [body, setBody] = useState()
   const navigate = useNavigate()
+  const appDispatch = useContext(DispatchContext)
+  const appState = useContext(StateContext)
+
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      const response = await Axios.post("/create-post", { title, body, token: localStorage.getItem("complexappToken") })
+      const response = await Axios.post("/create-post", { title, body, token: appState.user.token })
       //Redirect to new post url
+      appDispatch({ type: "flashMessage", value: "Congrats you created a new post." })
       navigate(`/post/${response.data}`)
       console.log("New Post was created.")
     } catch (e) {
